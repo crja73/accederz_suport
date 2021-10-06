@@ -21,10 +21,10 @@ class Form(StatesGroup):
 @dp.message_handler(commands="faq")
 async def cmd_start(message: types.Message):
     keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    buttons = ["Проблемы с работой чита", "Проблема с работой сайта", "Почему меня забанили"]
+    buttons = ["Чит", "Сайт", "Блокирока"]
     keyboard.add(*buttons)
 
-    await message.answer("Какая у вас проблема?", reply_markup=keyboard)
+    await message.answer("С чем у вас проблема?", reply_markup=keyboard)
 
 @dp.message_handler(Text(equals="Проблемы с работой чита"))
 async def with_puree(message: types.Message):
@@ -66,20 +66,11 @@ async def question(message: types.Message):
         await message.bot.send_message(message.from_user.id, value)
 
     except:
-        await message.bot.send_message(message.from_user.id, 'Некорректный формат, попробуйте "/ask_question описание проблемы"')
+        await message.bot.send_message(message.from_user.id, 'Некорректный формат, попробуйте "/ask_question описание проблемы" одной строчкой')
 
 @dp.message_handler(commands=['administrator'])
 async def question(message: types.Message):
-    value = message.text[15::]
-    if value == 'accederz':
-        try:
-            await message.bot.send_message(message.from_user.id, 'Добро пожаловать!')
-
-        except:
-            await message.bot.send_message(message.from_user.id, 'Попробуйте снова')
-
-    else:
-        await message.bot.send_message(message.from_user.id, value)
+    pass
 
 
 if __name__ == "__main__":
