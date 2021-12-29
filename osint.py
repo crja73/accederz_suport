@@ -22,35 +22,44 @@ class Form(StatesGroup):
 
 
 def search_email(email):
-    print(email)
-    f = open('bost.txt', encoding='utf-8')
-    
-    for i in f:
-        if email in i:
-            print(i)
-            return i
-    return 'Почта не найдена'
+    try:
+        print(email)
+        f = open('bost.txt', encoding='utf-8')
+        
+        for i in f:
+            if email in i:
+                print(i)
+                return i
+        return 'Почта не найдена'
+    except:
+        return 'Почта не найдена'
 
 def search_card(card):
-    print(card)
-    f = open('bost.txt', encoding='utf-8')
-    
-    for i in f:
-        if card in i:
-            print(i)
-            return i
-    return 'Карта не найдена'
+    try:
+        print(card)
+        f = open('bost.txt', encoding='utf-8')
+        
+        for i in f:
+            if card in i:
+                print(i)
+                return i
+        return 'Карта не найдена'
+    except:
+        return 'Карта не найдена'
 
 def search_phone(phone):
-    print(phone)
-    f = open('bost.txt', encoding='utf-8')
-    
-    for i in f:
-        #print(i)
-        if phone in i:
-            print(i)
-            return i
-    return 'Телефон не найден'
+    try:
+        print(phone)
+        f = open('bost.txt', encoding='utf-8')
+        
+        for i in f:
+            #print(i)
+            if phone in i:
+                print(i)
+                return i
+        return 'Телефон не найден'
+    except:
+        return 'Телефон не найден'
     
 
 @dp.message_handler(commands="start")
@@ -122,4 +131,4 @@ if __name__ == "__main__":
     try:
         executor.start_polling(dp, skip_updates=True)
     except:
-        print('Что то пошло не так, обратитесь к администратору MERCI')
+        print('Что-то пошло не так, обратитесь к администратору https://accederz.tech/members/merci.6/')

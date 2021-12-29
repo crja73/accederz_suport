@@ -58,7 +58,7 @@ async def with_puree(message: types.Message):
 @dp.message_handler(Text(equals="help/questions"))
 async def with_puree(message: types.Message):
 
-    await message.answer('По всем вопросам пишите администратору на форуме: MERCI')
+    await message.answer('По всем вопросам пишите администратору на форуме: https://accederz.tech/members/merci.6/')
     
 
 @dp.message_handler(state=Form.name)
@@ -103,7 +103,7 @@ async def process_name(message: types.Message, state: FSMContext):
             spis = spis[:50]
         await message.answer('\n'.join(spis))
     except:
-        await message.answer('Логин не найден')
+        await message.answer('Такой логин не найден')
     
 if __name__ == "__main__":
     try:
